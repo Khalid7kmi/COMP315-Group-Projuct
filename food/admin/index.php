@@ -7,7 +7,7 @@
     $username = $_POST['admin'];
     $password = $_POST['admin123'];
 
-    $sql = "SELECT * FROM users WHERE username='$username' LIMIT 1";
+    $sql = "SELECT * FROM users WHERE username='$username'";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
