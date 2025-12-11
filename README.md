@@ -141,23 +141,12 @@ This section details the files responsible for the front-end customer experience
 
 * **`admin_header.php`**
     The navigation bar specific to the admin panel, providing links to the Dashboard, Menu Management, and Order Management.
-<h1>📌 Requirements & Proofs</h1>
-
-<p>
-Below are all required project criteria with that was mentioned in the Mini Project Grading Rubric file.
-
-</p>
-
-<hr>
-
-# Food Ordering System - Project Requirements
-
-> **Note:** Please replace the placeholder text *(📸 Insert screenshot...)* with your actual screenshots in the GitHub editor before submitting!
 
 ---
-# Food Ordering System - Project Requirements
+# 📌Food Ordering System - Project Requirements
 
-> **Note:**TBD
+> **Note:**Below are all required project criteria that was mentioned in the Mini Project Grading Rubric file.
+
 
 
 <h2>✅ 1. SELECT Query (Fetching Data)</h2>
