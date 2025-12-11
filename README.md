@@ -37,16 +37,16 @@
 
 This document explains the purpose and functionality of each file in the project.
 
-## 📂 Core Configuration
+## 📂  Configuration
 
 * **`config.php`**
     Establishes the connection to the database using credentials (host, username, password, db name). It is included in almost every other file to enable data access.
 
-## 📱 User Interface & Customer Experience
+## 📱 UI
 
 This section details the files responsible for the front-end customer experience, including authentication, browsing food, and managing orders.
 
-### 🔐 Authentication & Session Management
+### 🔐 Authentication & Session 
 
 * **`register.php`**
     * **Purpose:** Handles new user sign-ups.
@@ -106,7 +106,7 @@ This section details the files responsible for the front-end customer experience
         * Executes a SQL `DELETE` command to remove the order from the database.
         * Redirects the user back to `orders.php` after deletion.
 
-### 🎨 Styling & Layout
+### 🎨 Style
 
 * **`header.php`**
     * **Purpose:** The main navigation bar included on every page.
@@ -145,79 +145,58 @@ This section details the files responsible for the front-end customer experience
 ---
 # 📌Food Ordering System - Project Requirements
 
-> **Note:**Below are all required project criteria that was mentioned in the Mini Project Grading Rubric file.
+> **Note:** Below are all required project criteria that was mentioned in the Mini Project Grading Rubric file.
 
 
 
-<h2>✅ 1. SELECT Query (Fetching Data)</h2>
+<h2>✅ 1. SELECT Query </h2>
 <p><strong>Requirement:</strong> Fetch data from MySQL.</p>
 <p><strong>File:</strong> menu.php</p>
 <pre><code class="language-php">
-// Fetching all food items to display in the menu
 $sql = "SELECT * FROM foods";
 $result = mysqli_query($conn, $sql);
 </code></pre>
 <hr>
 
-<h2>✅ 2. INSERT Query (Adding Data)</h2>
+<h2>✅ 2. INSERT Query</h2>
 <p><strong>Requirement:</strong> Add records (e.g., registration, add food).</p>
 <p><strong>File:</strong> create.php</p>
 <pre><code class="language-php">
-// Admin adding a new food item
 $sql = "INSERT INTO foods (item_name, description, price, image)
         VALUES ('$name', '$description', '$price', '$image')";
 $result = mysqli_query($conn, $sql);
 </code></pre>
 <hr>
 
-<h2>✅ 3. UPDATE / DELETE Queries</h2>
+<h2>✅ 3. UPDATE/DELETE Queries</h2>
 <p><strong>Requirement:</strong> Admin must be able to update or delete records.</p>
 <p><strong>File:</strong> update.php</p>
 <pre><code class="language-php">
-// UPDATE Query
 $sql = "UPDATE foods SET item_name='$name', description='$description', price='$price', image='$image' 
         WHERE id='$id'";
 $result = $conn->query($sql);
 </code></pre>
 <p><strong>File:</strong> delete.php</p>
 <pre><code class="language-php">
-// DELETE Query
 $sql = "DELETE FROM foods WHERE id = '$id'";
 $conn->query($sql);
 </code></pre>
 <hr>
 
-<h2>✅ 4. Authentication (Login / Logout with Sessions)</h2>
+<h2>✅ 4. Authentication
+(Login/Logout with PHP
+Sessions or Cookies)</h2>
 <p><strong>Requirement:</strong> Working login and logout system using PHP sessions.</p>
 <p><strong>File:</strong> login.php</p>
-<pre><code class="language-php">
-session_start();
-$_SESSION["loggedin"] = true;
-$_SESSION["id"] = $id;
-$_SESSION["username"] = $username;
-</code></pre>
-<p><strong>File:</strong> logout.php</p>
-<pre><code class="language-php">
-session_start();
-session_destroy();
-header("location: login.php");
-</code></pre>
+<img src="login-logout.gif" alt=" " width="500" height="333">
+
 <hr>
 
-<h2>✅ 5. Form Handling (At Least One Form)</h2>
+<h2>✅ 5.Form Handling (At Least
+One Form)</h2>
 <p><strong>Requirement:</strong> Process user input (order form, register form, etc).</p>
 <p><strong>File:</strong> order.php</p>
-<pre><code class="language-php">
-if (isset($_POST['place_order'])) {
-    $quantity = intval($_POST['quantity']);
-    if ($quantity < 1) $quantity = 1;
-
-    $price = $food['price'];
-    $total = $price * $quantity;
-
-    // Database insertion logic follows...
-}
-</code></pre>
+##empty for now
 <hr>
 
 <h2>✅ 6. Bootstrap & UI/UX Design</h2>
@@ -235,7 +214,8 @@ if (isset($_POST['place_order'])) {
 </code></pre>
 <hr>
 
-<h2>✅ 7. File Upload & Storage (File Handling)</h2>
+<h2>✅ 7. File Handling (File Upload
+& Storage in Database)</h2>
 <p><strong>Requirement:</strong> Upload files (images) and store the file path in the database.</p>
 <p><strong>File:</strong> create.php</p>
 <pre><code class="language-php">
@@ -248,10 +228,15 @@ if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
     $errorMessage = "Failed to upload image.";
 }
 </code></pre>
+<h2>Demo</h2>
+<img src="file handeling .gif" alt=" " width="500" height="333">
+
 <hr>
 
-<h2>✅ 8. Code Reusability (include/require)</h2>
-<p><strong>Requirement:</strong> Use include/require for header, footer, and database config.</p>
+<h2>✅ 8.Code Reusability (Using
+include or require)/h2>
+<p><strong>Requirement:</strong> Use include/require for header, and database config.</p>
+
 <p><strong>File:</strong> menu.php</p>
 <pre><code class="language-php">
 include "config.php"; 
