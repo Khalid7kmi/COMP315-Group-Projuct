@@ -2,7 +2,7 @@
     
     $host = "sql100.infinityfree.com";
     $username = "if0_39836550";
-    $password = "ju202412133123";
+    $password = "**********";
     $db = "if0_39836550_food_ordering_system";
 
 
