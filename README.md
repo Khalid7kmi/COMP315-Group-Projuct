@@ -150,177 +150,133 @@ Below are all required project criteria with that was mentioned in the Mini Proj
 
 <hr>
 
+# Food Ordering System - Project Requirements
+
+> **Note:** Please replace the placeholder text *(📸 Insert screenshot...)* with your actual screenshots in the GitHub editor before submitting!
+
+---
+<h1>🍽️ Food Ordering System – Project Requirements</h1>
+
+<p><strong>Note:</strong> Replace the placeholder text <em>(📸 Insert screenshot…)</em> with your actual screenshots in GitHub.</p>
+<hr>
+
 <h2>✅ 1. SELECT Query (Fetching Data)</h2>
-
-<p><strong>Requirement:</strong> The project must include a working SQL SELECT query to fetch data from MySQL.</p>
-
-<h3>Proof (Screenshot + Code)</h3>
-
-<img src="ER.png" alt=" " width="500" height="333">
-
-<pre>
-<code>
--- SELECT Query Example
+<p><strong>Requirement:</strong> Fetch data from MySQL.</p>
+<p><strong>File:</strong> menu.php</p>
+<pre><code class="language-php">
+// Fetching all food items to display in the menu
 $sql = "SELECT * FROM foods";
 $result = mysqli_query($conn, $sql);
-</code>
-</pre>
-
+</code></pre>
 <hr>
 
 <h2>✅ 2. INSERT Query (Adding Data)</h2>
-
-<p><strong>Requirement:</strong> System must allow adding records (e.g., registration, add food) using INSERT.</p>
-
-<h3>Proof</h3>
-
-<p><em>📸 Insert screenshot of a successful "Add Food" or "Register" action.</em></p>
-
-<pre>
-<code>
--- INSERT Query Example
-$insert = "INSERT INTO foods (title, description, price, image)
-           VALUES ('$title', '$description', '$price', '$image')";
-mysqli_query($conn, $insert);
-</code>
-</pre>
-
+<p><strong>Requirement:</strong> Add records (e.g., registration, add food).</p>
+<p><strong>File:</strong> create.php</p>
+<pre><code class="language-php">
+// Admin adding a new food item
+$sql = "INSERT INTO foods (item_name, description, price, image)
+        VALUES ('$name', '$description', '$price', '$image')";
+$result = mysqli_query($conn, $sql);
+</code></pre>
 <hr>
 
 <h2>✅ 3. UPDATE / DELETE Queries</h2>
-
 <p><strong>Requirement:</strong> Admin must be able to update or delete records.</p>
-
-<h3>Proof</h3>
-
-<p><em>📸 Insert screenshot of admin editing or deleting a food item.</em></p>
-
-<pre>
-<code>
--- UPDATE Query
-$update = "UPDATE foods SET title='$title', price='$price' WHERE id=$id";
-mysqli_query($conn, $update);
-
--- DELETE Query
-$delete = "DELETE FROM foods WHERE id = $id";
-mysqli_query($conn, $delete);
-</code>
-</pre>
-
+<p><strong>File:</strong> update.php</p>
+<pre><code class="language-php">
+// UPDATE Query
+$sql = "UPDATE foods SET item_name='$name', description='$description', price='$price', image='$image' 
+        WHERE id='$id'";
+$result = $conn->query($sql);
+</code></pre>
+<p><strong>File:</strong> delete.php</p>
+<pre><code class="language-php">
+// DELETE Query
+$sql = "DELETE FROM foods WHERE id = '$id'";
+$conn->query($sql);
+</code></pre>
 <hr>
 
 <h2>✅ 4. Authentication (Login / Logout with Sessions)</h2>
-
 <p><strong>Requirement:</strong> Working login and logout system using PHP sessions.</p>
-
-<h3>Proof</h3>
-
-<img src="login demo.gif" alt=" " width="500" height="333">
-
-<pre>
-<code>
--- Login Session
+<p><strong>File:</strong> login.php</p>
+<pre><code class="language-php">
 session_start();
-$_SESSION['user_id'] = $user['id'];
-
--- Logout
+$_SESSION["loggedin"] = true;
+$_SESSION["id"] = $id;
+$_SESSION["username"] = $username;
+</code></pre>
+<p><strong>File:</strong> logout.php</p>
+<pre><code class="language-php">
+session_start();
 session_destroy();
-</code>
-</pre>
-
+header("location: login.php");
+</code></pre>
 <hr>
 
 <h2>✅ 5. Form Handling (At Least One Form)</h2>
+<p><strong>Requirement:</strong> Process user input (order form, register form, etc).</p>
+<p><strong>File:</strong> order.php</p>
+<pre><code class="language-php">
+if (isset($_POST['place_order'])) {
+    $quantity = intval($_POST['quantity']);
+    if ($quantity < 1) $quantity = 1;
 
-<p><strong>Requirement:</strong> A working form that processes user input (order form, register form, etc).</p>
+    $price = $food['price'];
+    $total = $price * $quantity;
 
-<h3>Proof</h3>
-
-<p><em>📸 Insert screenshot of any working form (order, login, register).</em></p>
-
-<pre>
-<code>
--- Form Processing Example
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $quantity = $_POST['quantity'];
+    // Database insertion logic follows...
 }
-</code>
-</pre>
-
+</code></pre>
 <hr>
 
-<h2>✅ 6. Bootstrap & UI/UX Design (2 Marks)</h2>
-
-<p><strong>Requirement:</strong> The project must use Bootstrap for a responsive and clean UI.</p>
-
-<h3>Proof</h3>
-
-<p><em>📸 Insert screenshots of menu, homepage, navbar, admin dashboard.</em></p>
-
-<pre>
-<code>
--- Example Bootstrap Component
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-</nav>
-</code>
-</pre>
-
+<h2>✅ 6. Bootstrap & UI/UX Design</h2>
+<p><strong>Requirement:</strong> Use Bootstrap for a responsive and clean UI.</p>
+<p><strong>File:</strong> header.php</p>
+<pre><code class="language-html">
+&lt;nav class="navbar navbar-expand-lg navbar-dark shadow-sm navbar-custom"&gt;
+    &lt;div class="container"&gt;
+        &lt;a class="navbar-brand fw-bold" href="index.php"&gt;Our Restaurant&lt;/a&gt;
+        &lt;button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"&gt;
+            &lt;span class="navbar-toggler-icon"&gt;&lt;/span&gt;
+        &lt;/button&gt;
+    &lt;/div&gt;
+&lt;/nav&gt;
+</code></pre>
 <hr>
 
 <h2>✅ 7. File Upload & Storage (File Handling)</h2>
-
 <p><strong>Requirement:</strong> Upload files (images) and store the file path in the database.</p>
+<p><strong>File:</strong> create.php</p>
+<pre><code class="language-php">
+$target_dir = "uploads/";
+$target_file = $target_dir . basename($_FILES["image"]["name"]);
 
-<h3>Proof</h3>
-
-<p><em>📸 Insert screenshot of admin upload page and uploads/ folder.</em></p>
-
-<pre>
-<code>
--- File Upload Example
-$image_name = $_FILES['image']['name'];
-move_uploaded_file($_FILES['image']['tmp_name'], "admin/uploads/" . $image_name);
-</code>
-</pre>
-
+if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
+    $image = $target_file; // Variable stored in database
+} else {
+    $errorMessage = "Failed to upload image.";
+}
+</code></pre>
 <hr>
 
 <h2>✅ 8. Code Reusability (include/require)</h2>
-
 <p><strong>Requirement:</strong> Use include/require for header, footer, and database config.</p>
-
-<h3>Proof</h3>
-
-<p><em>📸 Insert screenshot of the includes/ folder structure.</em></p>
-
-<pre>
-<code>
--- Example Include Usage
-include "includes/header.php";
-include "config.php";
-</code>
-</pre>
-
+<p><strong>File:</strong> menu.php</p>
+<pre><code class="language-php">
+include "config.php"; 
+include "header.php";   
+</code></pre>
 <hr>
 
 <h2>✅ 9. Hosting & Accessibility</h2>
-
 <p><strong>Requirement:</strong> The project must be hosted online (InfinityFree, 000webhost, etc.).</p>
+<p><strong>File:</strong> config.php</p>
+<pre><code class="language-php">
+$host = "sql100.infinityfree.com";
+$username = "if0_39836550";
+$db = "if0_39836550_food_ordering_system";
 
-<h3>Proof</h3>
-
-<p><strong>🔗 Live Website Link:</strong></p>
-<p><em>Paste your URL here</em></p>
-
-<p><em>📸 Insert screenshot of the website running online.</em></p>
-
-<pre>
-<code>
--- Optional: Write your hosting setup steps here
-</code>
-</pre>
-
-<hr>
-
-
-
+$conn = new mysqli($host, $username, $password, $db);
+</code></pre>
