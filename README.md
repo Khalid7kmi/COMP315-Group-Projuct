@@ -12,6 +12,19 @@
     <td>202412133</td>
   </tr>
   <tr>
+    <td>Azzam Suwidi</td>
+    <td>202412217</td>
+  </tr>
+    <tr>
+    <td>abdulwadud sulimani</td>
+    <td>202412219</td>
+  </tr>
+    </tr>
+    <tr>
+    <td>Rayan almalki</td>
+    <td>202412142</td>
+  </tr>
+      <tr>
     <td>TBD</td>
     <td>TBD</td>
   </tr>
