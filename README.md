@@ -57,14 +57,12 @@ This section details the files responsible for the front-end customer experience
     * **FOR:** Handles new user sign-ups.
     * **Functionality:**
         * Validates that the username (3-20 chars) and password (6-20 chars) contain no spaces.
-        * Uses `password_hash()` to securely encrypt passwords before storing them in the `users` table.
         * Redirects to `login.php` upon success.
 
 * **`login.php`**
     * **FOR:** Authenticates existing users.
     * **Functionality:**
-        * Contains a hardcoded check for the admin account (User: `admin`, Pass: `admin123`) to redirect to the admin panel.
-        * Verifies customer credentials against the database using `password_verify()`.
+        * Contains a hardcoded check for the admin account (User: `admin`, Pass: `*****`) to redirect to the admin panel.
         * Starts a session (`$_SESSION["loggedin"]`) to track the user across pages.
 
 * **`logout.php`**
@@ -77,7 +75,6 @@ This section details the files responsible for the front-end customer experience
     * **FOR:** The landing page for logged-in users.
     * **Functionality:**
         * Displays a welcome alert with the username.
-        * Features a "Hero" section with a call-to-action button.
         * **Featured Dishes:** dynamically fetches and displays the first **3 items** from the `foods` database table to highlight popular items.
 
 * **`menu.php`**
@@ -107,7 +104,6 @@ This section details the files responsible for the front-end customer experience
 * **`delete_order.php`**
     * **FOR:** Handles the cancellation of orders.
     * **Functionality:**
-        * Accepts an order `id` via the URL.
         * Executes a SQL `DELETE` command to remove the order from the database.
         * Redirects the user back to `orders.php` after deletion.
 
@@ -133,7 +129,7 @@ This section details the files responsible for the front-end customer experience
     Lists all food items currently in the menu. It provides an interface for admins to add, update, or delete food items.
 
 * **`orders.php` (Admin View)**
-    Displays a table of all customer orders. It allows the admin to view order details (user, food, total) and update the status (e.g., from "Pending" to "Ready for Pick Up").
+    Displays a table of all customer orders. It allows the admin to view order details (user, food, total) and update the status ( from "Pending" to "Ready for Pick Up").
 
 * **`create.php`**
     A form that allows admins to add new food items to the database, including uploading an image for the item.
@@ -164,7 +160,7 @@ $result = mysqli_query($conn, $sql);
 <hr>
 
 <h2>✅ 2. INSERT Query</h2>
-<p><strong>Requirement:</strong> Add records (e.g., registration, add food).</p>
+<p><strong>Requirement:</strong> Add records ( registration, add food).</p>
 <p><strong>File:</strong> create.php</p>
 <pre><code class="language-php">
 $sql = "INSERT INTO foods (item_name, description, price, image)
