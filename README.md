@@ -54,34 +54,34 @@ This section details the files responsible for the front-end customer experience
 ### 🔐 Authentication & Session 
 
 * **`register.php`**
-    * **Purpose:** Handles new user sign-ups.
+    * **FOR:** Handles new user sign-ups.
     * **Functionality:**
         * Validates that the username (3-20 chars) and password (6-20 chars) contain no spaces.
         * Uses `password_hash()` to securely encrypt passwords before storing them in the `users` table.
         * Redirects to `login.php` upon success.
 
 * **`login.php`**
-    * **Purpose:** Authenticates existing users.
+    * **FOR:** Authenticates existing users.
     * **Functionality:**
         * Contains a hardcoded check for the admin account (User: `admin`, Pass: `admin123`) to redirect to the admin panel.
         * Verifies customer credentials against the database using `password_verify()`.
         * Starts a session (`$_SESSION["loggedin"]`) to track the user across pages.
 
 * **`logout.php`**
-    * **Purpose:** Ends the user session.
+    * **FOR:** Ends the user session.
     * **Functionality:** Runs `session_destroy()` and redirects the user immediately back to the login page.
 
 ### 🏠 Browsing & Ordering
 
 * **`index.php` (Home Page)**
-    * **Purpose:** The landing page for logged-in users.
+    * **FOR:** The landing page for logged-in users.
     * **Functionality:**
         * Displays a welcome alert with the username.
         * Features a "Hero" section with a call-to-action button.
         * **Featured Dishes:** dynamically fetches and displays the first **3 items** from the `foods` database table to highlight popular items.
 
 * **`menu.php`**
-    * **Purpose:** The main catalog of food items.
+    * **FOR:** The main catalog of food items.
     * **Functionality:**
         * Fetches **all** records from the `foods` table.
         * Displays items in a responsive grid layout using Bootstrap cards.
@@ -89,7 +89,7 @@ This section details the files responsible for the front-end customer experience
         * Includes an "Order Now" button passing the specific `food_id` to the next page.
 
 * **`order.php`**
-    * **Purpose:** The detailed order placement page.
+    * **FOR:** The detailed order placement page.
     * **Functionality:**
         * Receives the `food_id` from the URL to display specific details (Image, Title, Price).
         * Allows the user to input a **quantity** (minimum 1).
@@ -98,14 +98,14 @@ This section details the files responsible for the front-end customer experience
 ### 🧾 Order Management
 
 * **`orders.php` (My Orders)**
-    * **Purpose:** Displays the personal order history of the currently logged-in user.
+    * **FOR:** Displays the personal order history of the currently logged-in user.
     * **Functionality:**
         * Uses a `JOIN` query to combine `orders` and `foods` tables, showing the Food Name instead of just an ID.
         * Filters results specifically for the current user: `WHERE orders.user_id = ?`.
         * Provides a "Delete" button for each order.
 
 * **`delete_order.php`**
-    * **Purpose:** Handles the cancellation of orders.
+    * **FOR:** Handles the cancellation of orders.
     * **Functionality:**
         * Accepts an order `id` via the URL.
         * Executes a SQL `DELETE` command to remove the order from the database.
@@ -114,13 +114,13 @@ This section details the files responsible for the front-end customer experience
 ### 🎨 Style
 
 * **`header.php`**
-    * **Purpose:** The main navigation bar included on every page.
+    * **FOR:** The main navigation bar included on every page.
     * **Functionality:**
         * Dynamically changes links based on login status (e.g., shows "Logout" if logged in, "Login" if not).
         * Uses the custom brand color `#BE6741` for the navbar background.
 
 * **`style.css`**
-    * **Purpose:** Custom CSS overrides.
+    * **FOR:** Custom CSS overrides.
     * **Functionality:**
         * Defines the primary theme color (`#BE6741`) for buttons and backgrounds to ensure consistent branding.
         * Styles the hero section typography and button hover effects.
