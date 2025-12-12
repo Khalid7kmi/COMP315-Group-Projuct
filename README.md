@@ -1,6 +1,5 @@
 # COMP315-Group-Projuct
 <h1>A simple food Service System</h1>
-
 <h2>Students</h2>
 <table border="1">
   <tr>
@@ -25,7 +24,7 @@
     <td>TBD</td>
   </tr>
       <tr>
-    <td>TBD</td>
+    <td>Nawaf Hassan Qaddabi</td>
     <td>TBD</td>
   </tr>
 </table>
