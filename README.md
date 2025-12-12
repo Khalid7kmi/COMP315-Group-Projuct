@@ -30,10 +30,15 @@
   </tr>
 </table>
 
-<h1>ER digram for the database</h1>
-<img src="ER.png" alt=" " width="500" height="333">
+# Entity Relationship(ER) digram for the database
+> ## 🔴 *NOTE:*  The predefined values of the **status** attribute have been updated to for $convenience$ 😶:
+- **'Pending'**
+- **'Pick up'** 
 
-# Food Ordering System - File Documentation
+
+<img src="ER.png" alt=" " width="1000" height="500">
+
+# Food Ordering System - Files
 
 This document explains the purpose and functionality of each file in the project.
 
@@ -188,7 +193,7 @@ $conn->query($sql);
 Sessions or Cookies)</h2>
 <p><strong>Requirement:</strong> Working login and logout system using PHP sessions.</p>
 <p><strong>File:</strong> login.php</p>
-<img src="login-logout.gif" alt=" " width="500" height="333">
+<img src="login-logout.gif" alt=" " width="1000" height="333">
 
 <hr>
 
@@ -229,7 +234,7 @@ if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
 }
 </code></pre>
 <h2>Demo</h2>
-<img src="file handeling .gif" alt=" " width="500" height="333">
+<img src="file handeling .gif" alt=" " width="1000" height="333">
 
 <hr>
 
