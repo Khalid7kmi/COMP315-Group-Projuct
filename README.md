@@ -1,5 +1,41 @@
-# COMP315-Group-Projuct
+  <img src="uni Header.png" width="100%">
+
+# COMP315-Group-Projuct 
+# Web Programmin💻
+## table of cnotent
+
+<details>
+<summary><strong>📑 Table of Contents (click to expand)</strong></summary>
+
+<!-- START doctoc -->
+- [Entity Relationship (ER) Diagram for the Database](#entity-relationshiper-digram-for-the-database)
+- [Food Ordering System - Files](#food-ordering-system---files)
+  - [Configuration](#-configuration)
+  - [UI](#-ui)
+    - [Authentication & Session](#-authentication--session)
+    - [Browsing & Ordering](#-browsing--ordering)
+    - [Order Management](#-order-management)
+    - [Style](#-style)
+  - [Admin Panel (Admin Directory)](#-admin-panel-admin-directory)
+- [Food Ordering System - Project Requirements](#-food-ordering-system---project-requirements)
+  - [1. SELECT Query](#-1-select-query)
+  - [2. INSERT Query](#-2-insert-query)
+  - [3. UPDATE/DELETE Queries](#-3-updatedelete-queries)
+  - [4. Authentication (Login/Logout with PHP Sessions or Cookies)](#-4-authentication-loginlogout-with-php-sessions-or-cookies)
+  - [5. Form Handling (At Least One Form)](#-5form-handling-at-least-one-form)
+  - [6. Bootstrap & UI/UX Design](#-6-bootstrap--uiux-design)
+  - [7. File Handling (File Upload & Storage in Database)](#-7-file-handling-file-upload--storage-in-database)
+  - [8. Code Reusability (Using include or require)](#-8code-reusability-using-include-or-require)
+  - [9. Hosting & Accessibility](#-9-hosting--accessibility)
+- [Demo](#demo)
+<!-- END doctoc -->
+
+</details>
+
+
+
 <h1>A simple food Service System</h1>
+<h2> Introduction </h2>
 <h2>Students</h2>
 <table border="1">
   <tr>
